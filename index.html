@@ -1839,13 +1839,41 @@
       document.body.style.overflow = '';
     }
 
+    const APPLY_WEBHOOK = 'https://hook.us2.make.com/uelsuxi6ul4n3trmf3uxfqpyg17n3j81';
+
     function handleModalSubmit(e) {
       e.preventDefault();
-      const btn = document.getElementById('modalSubmitBtn');
-      btn.innerHTML = 'Application Sent! ✓';
-      btn.style.background = 'linear-gradient(135deg, #6EE7B7, #818CF8)';
-      btn.disabled = true;
-      setTimeout(() => { closeModal(); btn.innerHTML = 'Submit Application →'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 2500);
+      const btn  = document.getElementById('modalSubmitBtn');
+      const form = e.target;
+
+      btn.innerHTML = 'Sending... ⏳';
+      btn.disabled  = true;
+
+      fetch(APPLY_WEBHOOK, {
+        method: 'POST',
+        body:   new FormData(form),
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('server error');
+          btn.innerHTML    = 'Application Sent! ✓';
+          btn.style.background = 'linear-gradient(135deg, #6EE7B7, #818CF8)';
+          setTimeout(() => {
+            closeModal();
+            btn.innerHTML    = 'Submit Application →';
+            btn.style.background = '';
+            btn.disabled     = false;
+            form.reset();
+          }, 2500);
+        })
+        .catch(() => {
+          btn.innerHTML    = 'Failed — please try again';
+          btn.style.background = '#ef4444';
+          btn.disabled     = false;
+          setTimeout(() => {
+            btn.innerHTML    = 'Submit Application →';
+            btn.style.background = '';
+          }, 3000);
+        });
     }
 
     document.getElementById('jobModal').addEventListener('click', e => {
