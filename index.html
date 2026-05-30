@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quỳnh Anh (Gigi) — Senior Talent Acquisition | CMC Technology & Solution</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:            #0A0A0A;
+      --surface:       #111111;
+      --surface-2:     #161616;
+      --border:        #1E1E1E;
+      --border-2:      #2A2A2A;
+      --primary:       #6EE7B7;
+      --primary-dim:   rgba(110,231,183,0.08);
+      --primary-glow:  rgba(110,231,183,0.18);
+      --secondary:     #818CF8;
+      --secondary-dim: rgba(129,140,248,0.08);
+      --text:          #F5F5F5;
+      --muted:         #A3A3A3;
+      --subtle:        #525252;
+      --glass:         rgba(255,255,255,0.04);
+      --r:             14px;
+      --r-sm:          8px;
+      --r-full:        9999px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ===== GRADIENT TEXT UTILITY ===== */
+    .grad-text {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(5,5,8,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(110,231,183,0.12);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+      color: #0A0A0A;
+      letter-spacing: -0.04em;
+      flex-shrink: 0;
+    }
+    .nav-brand-text { display: flex; flex-direction: column; gap: 1px; }
+    .nav-logo {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .nav-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn-book {
+      display: inline-block;
+      padding: 0.55rem 1.3rem;
+      background: var(--primary);
+      color: #0A0A0A !important;
+      font-weight: 700;
+      font-size: 0.875rem;
+      border-radius: 8px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-book:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: rgba(5,5,8,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 1.5rem 5%;
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.4rem 0;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--text); }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 5% 80px;
+    }
+
+    /* Animated gradient mesh */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 30%, rgba(110,231,183,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 70%, rgba(129,140,248,0.10) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 10%, rgba(110,231,183,0.08) 0%, transparent 50%);
+      animation: meshMove 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes meshMove {
+      0% { opacity: 1; transform: scale(1) translate(0,0); }
+      100% { opacity: 0.7; transform: scale(1.05) translate(10px, -10px); }
+    }
+
+    /* Grid dots overlay */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(110,231,183,0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.4rem 1.1rem;
+      border: 1px solid var(--primary);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      background: rgba(110,231,183,0.08);
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-name {
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 0.85rem 2rem;
+      background: var(--primary);
+      color: #0A0A0A;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-outline {
+      padding: 0.85rem 2rem;
+      background: transparent;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid rgba(110,231,183,0.35);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: rgba(110,231,183,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--primary), transparent);
+      animation: scrollDown 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDown {
+      0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      50% { opacity: 0.4; transform: scaleY(0.5); }
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== ABOUT / STATS ===== */
+    #about {
+      background: linear-gradient(180deg, #0A0A0A 0%, #0d1110 50%, #0A0A0A 100%);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+      font-size: 0.975rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .stat-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .stat-card:hover::before { opacity: 1; }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.825rem;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== HOW I WORK ===== */
+    #how {
+      position: relative;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(110,231,183,0.25);
+      border-radius: 20px;
+      padding: 2rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .glass-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+    }
+
+    /* Animated gradient border on hover */
+    .glass-card::after {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 21px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+      background-size: 300% 300%;
+      animation: gradBorder 3s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: -1;
+    }
+    .glass-card:hover::after { opacity: 1; }
+
+    @keyframes gradBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(6,182,212,0.15));
+      border: 1px solid rgba(110,231,183,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ===== RECRUITMENT PROCESS ===== */
+    #process {
+      background: linear-gradient(180deg, #0A0A0A 0%, #0d110e 50%, #0A0A0A 100%);
+    }
+
+    .process-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .timeline {
+      position: relative;
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 5%;
+      right: 5%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      z-index: 0;
+    }
+
+    .timeline-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .step-dot:hover {
+      background: rgba(124,58,237,0.2);
+    }
+
+    .step-num {
+      font-size: 0.75rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.05em;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ===== CAREER OPPORTUNITIES ===== */
+    #careers {
+      position: relative;
+    }
+
+    .careers-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .job-card {
+      cursor: pointer;
+      background: var(--glass);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .job-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .job-card:hover {
+      border-color: rgba(110,231,183,0.35);
+      background: rgba(124,58,237,0.07);
+      transform: translateY(-4px);
+    }
+    .job-card:hover::before { transform: scaleX(1); }
+
+    .job-tag {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      background: rgba(110,231,183,0.12);
+      border: 1px solid rgba(110,231,183,0.25);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    .job-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .job-meta span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .job-arrow {
+      position: absolute;
+      top: 1.8rem; right: 1.8rem;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(110,231,183,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: all 0.3s;
+    }
+    .job-card:hover .job-arrow {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-color: transparent;
+      color: #fff;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: linear-gradient(180deg, #0A0A0A 0%, #0d1110 60%, #0A0A0A 100%);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(110,231,183,0.15);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+      background: rgba(124,58,237,0.06);
+    }
+    .form-group textarea { min-height: 120px; }
+    .form-group select option { background: #0a0812; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .contact-card-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-card-desc {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(110,231,183,0.12);
+      border-radius: 12px;
+      transition: border-color 0.2s;
+    }
+    .contact-info-item:hover { border-color: rgba(124,58,237,0.4); }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(6,182,212,0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+    .info-text span {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 2.5rem 5%;
+      border-top: 1px solid rgba(110,231,183,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .jobs-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 70px 5%; }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .cards-grid { grid-template-columns: 1fr; }
+      .jobs-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+
+      .timeline {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+      .timeline::before {
+        top: 5%;
+        bottom: 5%;
+        left: 28px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, var(--primary), var(--secondary));
+      }
+      .timeline-step {
+        flex-direction: row;
+        text-align: left;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+      .step-dot { flex-shrink: 0; margin-bottom: 0; }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== JOBS LOADING STATE ===== */
+    .jobs-loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+    }
+    .jobs-spinner {
+      width: 38px; height: 38px;
+      border: 3px solid var(--border-2);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .jobs-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .jobs-error {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ===== JOB DETAIL MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-drawer {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: min(680px, 100vw);
+      background: #111111;
+      border-left: 1px solid rgba(110,231,183,0.18);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.45s cubic-bezier(0.16,1,0.3,1);
+      overflow: hidden;
+    }
+    .modal-overlay.open .modal-drawer {
+      transform: translateX(0);
+    }
+    .modal-head {
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+    .modal-head-info { flex: 1; min-width: 0; }
+    .modal-job-tag {
+      display: inline-block;
+      padding: 0.18rem 0.7rem;
+      background: var(--primary-dim);
+      border: 1px solid rgba(110,231,183,0.28);
+      border-radius: var(--r-full);
+      color: var(--primary);
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+    .modal-job-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .modal-job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .modal-job-meta span {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      padding: 0.18rem 0.6rem;
+      border-radius: var(--r-sm);
+    }
+    .modal-close {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 36px; height: 36px;
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .modal-close:hover { background: var(--surface-2); color: var(--text); border-color: var(--border-2); }
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.75rem 2rem 3rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-2) transparent;
+    }
+    .modal-section { margin-bottom: 1.75rem; }
+    .modal-section-label {
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+    .modal-desc {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.92rem;
+    }
+    .modal-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .modal-list li {
+      display: flex;
+      gap: 0.7rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .modal-list li::before {
+      content: '▸';
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+    .modal-salary-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      background: linear-gradient(135deg, rgba(110,231,183,0.12), rgba(129,140,248,0.08));
+      border: 1px solid rgba(110,231,183,0.28);
+      border-radius: var(--r);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--primary);
+    }
+    .modal-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+    }
+    .modal-apply-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+    .modal-apply-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      line-height: 1.6;
+    }
+    .modal-form .form-group { margin-bottom: 1rem; }
+    .modal-form label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .modal-form input,
+    .modal-form textarea {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-sm);
+      color: var(--text);
+      padding: 0.65rem 0.9rem;
+      font-size: 0.88rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .modal-form input:focus,
+    .modal-form textarea:focus { border-color: var(--primary); }
+    .modal-form textarea { min-height: 90px; resize: vertical; }
+    .modal-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    @media (max-width: 480px) { .modal-form .form-row { grid-template-columns: 1fr; } }
+    .modal-upload {
+      border: 2px dashed var(--border-2);
+      border-radius: var(--r);
+      padding: 1.25rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--surface);
+    }
+    .modal-upload:hover, .modal-upload.drag-over {
+      border-color: var(--primary);
+      background: var(--primary-dim);
+    }
+    .modal-upload input[type="file"] { display: none; }
+    .modal-upload-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .modal-upload-text { font-size: 0.82rem; color: var(--muted); }
+    .modal-upload-text strong { color: var(--primary); cursor: pointer; }
+    .modal-upload-filename {
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav>
+    <a href="#hero" class="nav-brand">
+      <div class="nav-logo-mark">QA</div>
+      <div class="nav-brand-text">
+        <span class="nav-logo">Quỳnh Anh (Gigi)</span>
+        <span class="nav-subtitle">Senior Talent Acquisition · CMC Technology &amp; Solution</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#how">How I Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#careers">Opportunities</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:0.75rem">
+      <a href="#contact" class="btn-book">Book a Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#how" class="mobile-link">How I Work</a>
+    <a href="#process" class="mobile-link">Process</a>
+    <a href="#careers" class="mobile-link">Opportunities</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-badge fade-up">Senior Talent Acquisition &nbsp;·&nbsp; CMC Technology &amp; Solution</div>
+      <h1 class="hero-h1 fade-up" style="transition-delay:0.1s">
+        Talent meets<br />
+        <span class="grad-text">Opportunity</span>
+      </h1>
+      <p class="hero-name fade-up" style="transition-delay:0.2s">Quỳnh Anh (Gigi)</p>
+      <p class="hero-tagline fade-up" style="transition-delay:0.3s">
+        I don't just search for candidates — I build teams that help companies shape the future.
+      </p>
+      <div class="hero-ctas fade-up" style="transition-delay:0.4s">
+        <a href="#careers" class="btn-primary">See Open Roles</a>
+        <a href="#contact" class="btn-outline">Book a Call</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Talent Strategist<br /><span class="grad-text">at the Core</span></h2>
+          <p>With 5+ years in Talent Acquisition within the tech industry, I specialize in connecting top-tier professionals with meaningful career opportunities at CMC Technology &amp; Solution.</p>
+          <p>I believe every candidate has a unique story — and every open role is a chance to build a stronger, more innovative team for the organization.</p>
+          <p>My philosophy: <strong style="color:var(--text)">Candidate-First, Data-Driven, Result-Oriented.</strong></p>
+          <a href="#contact" class="btn-primary" style="margin-top:1rem;display:inline-block">Work with Me</a>
+        </div>
+        <div class="stats-grid fade-up" style="transition-delay:0.15s">
+          <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Placements Made</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Tech Domains</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">Active Partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW I WORK ===== -->
+  <section id="how">
+    <div class="container">
+      <div class="how-header fade-up">
+        <div class="section-label">My Approach</div>
+        <h2 class="section-title">How I <span class="grad-text">Work</span></h2>
+        <p class="section-sub" style="margin:0 auto">Four core principles that shape how I approach every recruitment journey.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="glass-card fade-up" style="transition-delay:0.05s">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">Candidate-First</div>
+          <div class="card-desc">Every candidate is a top priority. I ensure a transparent, respectful and genuinely valuable hiring experience for everyone involved.</div>
+        </div>
+        <div class="glass-card fade-up" style="transition-delay:0.1s">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Deep Tech</div>
+          <div class="card-desc">Deep knowledge of tech stacks, architecture and engineering culture helps me find the right person for the right role — not just in skills but in mindset.</div>
+        </div>
+        <div class="glass-card fade-up" style="transition-delay:0.15s">
+          <div class="card-icon">📊</div>
+          <div class="card-title">Data-Driven</div>
+          <div class="card-desc">Every hiring decision is backed by data — from market insights and salary benchmarks to talent pipeline analytics.</div>
+        </div>
+        <div class="glass-card fade-up" style="transition-delay:0.2s">
+          <div class="card-icon">🤝</div>
+          <div class="card-title">Long-Term Partnership</div>
+          <div class="card-desc">I build lasting relationships with both candidates and hiring managers, creating a trusted foundation for sustainable career growth.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RECRUITMENT PROCESS ===== -->
+  <section id="process">
+    <div class="container">
+      <div class="process-header fade-up">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">Recruitment <span class="grad-text">Process</span></h2>
+        <p class="section-sub" style="margin:0 auto">A transparent, efficient process — from the first conversation to a successful onboarding day.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-step fade-up" style="transition-delay:0.05s">
+          <div class="step-dot"><span class="step-num">01</span></div>
+          <div>
+            <div class="step-title">Discovery Call</div>
+            <div class="step-desc">Understanding your needs, goals and culture to define the ideal candidate profile.</div>
+          </div>
+        </div>
+        <div class="timeline-step fade-up" style="transition-delay:0.1s">
+          <div class="step-dot"><span class="step-num">02</span></div>
+          <div>
+            <div class="step-title">Talent Search</div>
+            <div class="step-desc">Leveraging a broad network and diverse candidate pools to identify top potential talent.</div>
+          </div>
+        </div>
+        <div class="timeline-step fade-up" style="transition-delay:0.15s">
+          <div class="step-dot"><span class="step-num">03</span></div>
+          <div>
+            <div class="step-title">Screening</div>
+            <div class="step-desc">Evaluating technical skills, soft skills and culture fit through an in-depth screening process.</div>
+          </div>
+        </div>
+        <div class="timeline-step fade-up" style="transition-delay:0.2s">
+          <div class="step-dot"><span class="step-num">04</span></div>
+          <div>
+            <div class="step-title">Interview</div>
+            <div class="step-desc">Supporting the full interview process, ensuring the best experience for both candidates and hiring teams.</div>
+          </div>
+        </div>
+        <div class="timeline-step fade-up" style="transition-delay:0.25s">
+          <div class="step-dot"><span class="step-num">05</span></div>
+          <div>
+            <div class="step-title">Onboarding</div>
+            <div class="step-desc">Guiding from offer negotiation to the first day on the job — ensuring everything goes smoothly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAREER OPPORTUNITIES ===== -->
+  <section id="careers">
+    <div class="container">
+      <div class="careers-header fade-up">
+        <div class="section-label">Open Positions</div>
+        <h2 class="section-title">Career <span class="grad-text">Opportunities</span></h2>
+        <p class="section-sub">Current openings at CMC Technology &amp; Solution — where technology meets vision.</p>
+      </div>
+      <div class="jobs-loading" id="jobsLoading">
+        <div class="jobs-spinner"></div>
+        <p>Loading open positions...</p>
+      </div>
+      <div class="jobs-grid" id="jobsGrid"></div>
+      <p class="jobs-empty" id="jobsEmpty" style="display:none">
+        No open positions at the moment — check back soon or <a href="#contact" style="color:var(--primary)">send a general application</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Left: Form -->
+        <div class="fade-up">
+          <div class="section-label">Get in Touch</div>
+          <h2 class="section-title" style="margin-bottom:0.75rem">Let's <span class="grad-text">Connect</span></h2>
+          <p class="section-sub" style="margin-bottom:2rem">Looking for a new opportunity, or need hiring support? Let me help you get there.</p>
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+84 xxx xxx xxx" />
+            </div>
+            <div class="form-group">
+              <label>How can I help?</label>
+              <select>
+                <option>Exploring new opportunities</option>
+                <option>Salary & market advice</option>
+                <option>Hiring support for your company</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell me a bit about yourself or what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width:100%;padding:1rem;font-size:1rem;">
+              Send Message &#8594;
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Book a Call -->
+        <div class="contact-right fade-up" style="transition-delay:0.15s">
+          <div class="contact-card">
+            <div style="font-size:2.5rem;margin-bottom:1rem">&#128222;</div>
+            <div class="contact-card-title">Book a Call</div>
+            <div class="contact-card-desc">Schedule a direct meeting with me to discuss career opportunities or your company's hiring needs. Completely free.</div>
+            <a href="mailto:qanh9988@gmail.com?subject=Book a Call - Career Consultation" class="btn-primary" style="width:100%;text-align:center;display:block;padding:1rem;">
+              Book a Call &#8599;
+            </a>
+          </div>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="info-icon">&#128231;</div>
+              <div class="info-text">
+                <strong>Email</strong>
+                <span>qanh9988@gmail.com</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="info-icon">&#127970;</div>
+              <div class="info-text">
+                <strong>Company</strong>
+                <span>CMC Technology &amp; Solution</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="info-icon">&#127759;</div>
+              <div class="info-text">
+                <strong>Location</strong>
+                <span>Hanoi &amp; Ho Chi Minh City, Vietnam</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="info-icon">&#128337;</div>
+              <div class="info-text">
+                <strong>Response Time</strong>
+                <span>Within 24 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-logo">CQA</div>
+    <p class="footer-copy">&copy; 2026 Quỳnh Anh (Gigi) · Senior Talent Acquisition · CMC Technology &amp; Solution</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#careers">Opportunities</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <!-- ===== JOB DETAIL MODAL ===== -->
+  <div class="modal-overlay" id="jobModal" role="dialog" aria-modal="true">
+    <div class="modal-drawer" id="modalDrawer">
+      <div class="modal-head">
+        <div class="modal-head-info">
+          <div class="modal-job-tag" id="modalTag"></div>
+          <div class="modal-job-title" id="modalTitle"></div>
+          <div class="modal-job-meta" id="modalMeta"></div>
+        </div>
+        <button class="modal-close" id="modalClose" aria-label="Close panel">&#10005;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close mobile menu when link clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Intersection Observer — scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Trigger hero items immediately
+    const heroItems = document.querySelectorAll('#hero .fade-up');
+    heroItems.forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 200 + i * 120);
+    });
+
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        nav.style.boxShadow = '0 4px 40px rgba(124,58,237,0.12)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    });
+
+    // Form submit handler
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.innerHTML;
+      btn.innerHTML = 'Sent! &#10003;';
+      btn.style.background = '#6EE7B7'; btn.style.color = '#0A0A0A';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+
+    // ===== JOBS: FETCH FROM API =====
+    const JOBS_API = 'https://api.sheetbest.com/sheets/3904275c-1888-44c7-b916-edc3eb618f7f';
+    let _activeJobs = [];
+
+    async function fetchJobs() {
+      try {
+        const res = await fetch(JOBS_API);
+        if (!res.ok) throw new Error('API error ' + res.status);
+        const data = await res.json();
+        _activeJobs = data.filter(j => j.status === 'Đang tuyển');
+        renderJobs(_activeJobs);
+      } catch (err) {
+        document.getElementById('jobsLoading').innerHTML =
+          '<p class="jobs-error">Could not load positions. Please refresh or try again later.</p>';
+      }
+    }
+
+    function renderJobs(jobs) {
+      const grid    = document.getElementById('jobsGrid');
+      const loading = document.getElementById('jobsLoading');
+      const empty   = document.getElementById('jobsEmpty');
+      loading.style.display = 'none';
+      if (!jobs.length) { empty.style.display = 'block'; return; }
+      grid.innerHTML = jobs.map((job, i) => `
+        <div class="job-card fade-up" style="transition-delay:${(i * 0.05).toFixed(2)}s"
+             onclick="openJob(${i})" role="button" tabindex="0"
+             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openJob(${i})}">
+          <div class="job-arrow">&#8599;</div>
+          ${job.Department ? `<div class="job-tag">${job.Department}</div>` : ''}
+          <div class="job-title">${job.Title || 'Open Position'}</div>
+          <div class="job-meta">
+            ${job.Location ? `<span>&#128205; ${job.Location}</span>` : ''}
+            ${job.Salary   ? `<span>&#128176; ${job.Salary}</span>`   : ''}
+          </div>
+        </div>`).join('');
+      grid.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    }
+
+    function openJob(idx) {
+      const job = _activeJobs[idx];
+      if (!job) return;
+
+      document.getElementById('modalTag').textContent   = job.Department || 'Open Position';
+      document.getElementById('modalTitle').textContent = job.Title || '';
+      document.getElementById('modalMeta').innerHTML    = [
+        job.Location ? `<span>&#128205; ${job.Location}</span>` : '',
+        job.Salary   ? `<span>&#128176; ${job.Salary}</span>`   : '',
+        '<span style="color:var(--primary)">&#9679; Đang tuyển</span>',
+      ].join('');
+
+      const desc = job.Description
+        ? job.Description.replace(/\n/g, '<br>')
+        : '<em style="color:var(--muted)">No description provided.</em>';
+
+      document.getElementById('modalBody').innerHTML = `
+        <div class="modal-section">
+          <div class="modal-section-label">Job Description</div>
+          <div class="modal-desc" style="line-height:1.9">${desc}</div>
+        </div>
+        <div class="modal-divider"></div>
+        <div class="modal-section" id="applySection">
+          <div class="modal-apply-title">Apply for this position</div>
+          <div class="modal-apply-desc">Send your application for <strong>${job.Title}</strong>. Quỳnh Anh will get back to you within 24 hours.</div>
+          <form class="modal-form" onsubmit="handleModalSubmit(event)">
+            <input type="hidden" name="position" value="${job.Title}" />
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="form-group">
+                <label>Email *</label>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+84 xxx xxx xxx" />
+            </div>
+            <div class="form-group">
+              <label>Attach CV (PDF or DOCX, max 5MB)</label>
+              <div class="modal-upload" id="modalUploadArea" onclick="document.getElementById('modalCvInput').click()">
+                <div class="modal-upload-icon">&#128206;</div>
+                <div class="modal-upload-text">Drag &amp; drop or <strong>browse</strong> to upload</div>
+                <div class="modal-upload-filename" id="modalFileName"></div>
+                <input type="file" id="modalCvInput" name="cv" accept=".pdf,.docx" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Cover Letter / Note</label>
+              <textarea name="message" placeholder="Tell me a bit about yourself and why you are a great fit..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" id="modalSubmitBtn"
+                    style="width:100%;padding:0.9rem;font-size:0.95rem;justify-content:center;">
+              Submit Application &#8594;
+            </button>
+          </form>
+        </div>`;
+
+      const cvInput   = document.getElementById('modalCvInput');
+      const fileNameEl = document.getElementById('modalFileName');
+      const uploadArea = document.getElementById('modalUploadArea');
+      cvInput.addEventListener('change', () => {
+        if (cvInput.files[0]) fileNameEl.textContent = '✓ ' + cvInput.files[0].name;
+      });
+      uploadArea.addEventListener('dragover',  e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+      uploadArea.addEventListener('dragleave', ()  => uploadArea.classList.remove('drag-over'));
+      uploadArea.addEventListener('drop', e => {
+        e.preventDefault(); uploadArea.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file) fileNameEl.textContent = '✓ ' + file.name;
+      });
+
+      document.getElementById('jobModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    fetchJobs();
+
+    const JOB_DATA = [ /* legacy — no longer used */
+      {
+        tag: 'Engineering',
+        title: 'Senior Backend Engineer',
+        location: '📍 Hanoi',
+        type: '💼 Full-time',
+        tech: '⚡ Java / Go',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Join the core platform team at CMC Technology & Solution to design and build scalable microservices powering fintech products used across Southeast Asia. You will own critical backend systems and have direct impact on product architecture.',
+        responsibilities: [
+          'Design and develop high-performance backend services in Java and/or Go',
+          'Architect RESTful / gRPC APIs handling millions of requests per day',
+          'Collaborate with frontend, DevOps, and product teams in an Agile setup',
+          'Conduct thorough code reviews and mentor junior engineers',
+          'Identify and resolve performance bottlenecks at scale',
+        ],
+        requirements: [
+          '5+ years of backend development experience (Java, Go, or equivalent)',
+          'Deep understanding of distributed systems, caching, and message queues (Kafka, RabbitMQ)',
+          'Hands-on experience with PostgreSQL, Redis, and MongoDB',
+          'Familiarity with Docker, Kubernetes, and CI/CD pipelines',
+          'Strong analytical mindset and good English communication',
+        ],
+        benefits: [
+          'Competitive salary + quarterly performance bonus',
+          'Premium health insurance (Bảo Việt for employee & family)',
+          'Flexible & hybrid working model',
+          '13th-month salary + annual merit review',
+          'Annual learning & certification budget',
+        ],
+      },
+      {
+        tag: 'Engineering',
+        title: 'Frontend Developer',
+        location: '📍 HCM / Remote',
+        type: '💼 Full-time',
+        tech: '⚡ React / Vue',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Build beautiful, high-performance web applications used by thousands of enterprise clients. You will work closely with UX designers and backend engineers to deliver seamless digital experiences across CMC\'s product portfolio.',
+        responsibilities: [
+          'Build responsive, accessible web UIs using React or Vue.js',
+          'Collaborate with designers to implement pixel-perfect interfaces',
+          'Optimize application performance (Core Web Vitals, bundle size, rendering)',
+          'Write clean, testable code with comprehensive unit and integration tests',
+          'Participate in technical discussions and help define frontend standards',
+        ],
+        requirements: [
+          '3+ years of frontend development experience with React or Vue',
+          'Strong CSS skills — Flexbox, Grid, responsive design, animations',
+          'Experience with REST APIs, GraphQL, and state management (Redux, Pinia)',
+          'Familiarity with build tools: Vite, Webpack, or similar',
+          'Eye for design and attention to UI/UX details',
+        ],
+        benefits: [
+          'Remote-friendly culture — work from anywhere in Vietnam',
+          'Modern tech stack with freedom to suggest improvements',
+          'Premium health insurance',
+          'Flexible hours + async-first communication',
+          'Annual team offsites & hackathons',
+        ],
+      },
+      {
+        tag: 'Infrastructure',
+        title: 'DevOps Engineer',
+        location: '📍 Hanoi',
+        type: '💼 Full-time',
+        tech: '⚡ K8s / AWS',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Own and evolve the infrastructure that keeps CMC\'s platform running at 99.9% uptime. You will work at the intersection of development and operations — automating deployments, scaling systems, and ensuring platform reliability.',
+        responsibilities: [
+          'Design, implement, and maintain Kubernetes clusters on AWS',
+          'Build and improve CI/CD pipelines to accelerate delivery cycles',
+          'Monitor system health, set up alerting, and respond to incidents',
+          'Implement Infrastructure-as-Code using Terraform or CDK',
+          'Champion DevSecOps practices and platform security standards',
+        ],
+        requirements: [
+          '4+ years of DevOps / SRE experience in a cloud environment',
+          'Strong hands-on expertise with Kubernetes (EKS preferred) and Docker',
+          'Deep AWS knowledge: EC2, EKS, RDS, S3, IAM, VPC, CloudWatch',
+          'Experience with Terraform, Helm, and ArgoCD or FluxCD',
+          'Incident management mindset with strong scripting skills (Bash, Python)',
+        ],
+        benefits: [
+          'On-call allowance + incident response bonus',
+          'AWS certification support & exam fee reimbursement',
+          'Premium health insurance',
+          'Competitive salary + performance bonus',
+          'Cross-functional collaboration with product and engineering teams',
+        ],
+      },
+      {
+        tag: 'Data',
+        title: 'Data Engineer',
+        location: '📍 Hanoi / Remote',
+        type: '💼 Full-time',
+        tech: '⚡ Spark / Airflow',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Build the data infrastructure that powers business intelligence and machine learning at CMC. You will design robust data pipelines, ensure data quality, and enable analysts and data scientists to do their best work.',
+        responsibilities: [
+          'Design and maintain scalable ETL/ELT pipelines using Apache Spark and Airflow',
+          'Build and manage the data warehouse (Redshift, BigQuery, or Snowflake)',
+          'Ensure data quality, lineage, and governance across all pipelines',
+          'Collaborate with Data Scientists to prepare features for ML models',
+          'Document data models and maintain the internal data catalog',
+        ],
+        requirements: [
+          '3+ years of data engineering experience',
+          'Proficiency in Python and SQL; familiarity with Scala is a plus',
+          'Hands-on experience with Apache Spark, Airflow, and dbt',
+          'Experience with cloud data warehouses (Redshift, BigQuery, or Snowflake)',
+          'Understanding of data modeling techniques (star schema, data vault)',
+        ],
+        benefits: [
+          'Remote-friendly — 2 days/week in-office preferred',
+          'Access to large-scale, interesting datasets',
+          'Premium health insurance',
+          'Conference & training budget',
+          'Competitive salary + annual review',
+        ],
+      },
+      {
+        tag: 'Product',
+        title: 'Product Manager',
+        location: '📍 Ho Chi Minh City',
+        type: '💼 Full-time',
+        tech: '⚡ B2B SaaS',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Drive the strategy and roadmap for CMC\'s B2B SaaS products. You will act as the bridge between customers, business stakeholders, and engineering — translating market needs into products that create real value.',
+        responsibilities: [
+          'Own the product roadmap and prioritize features based on customer feedback and data',
+          'Write clear, detailed product requirements and user stories',
+          'Work closely with engineering and design to ship high-quality features on schedule',
+          'Conduct user research, interviews, and A/B tests to validate hypotheses',
+          'Define and monitor KPIs to measure product success and iterate quickly',
+        ],
+        requirements: [
+          '4+ years of product management experience, preferably in B2B SaaS',
+          'Strong analytical skills with experience in product analytics tools (Mixpanel, Amplitude)',
+          'Excellent communication and stakeholder management skills',
+          'Ability to translate complex technical concepts for non-technical audiences',
+          'Experience working in an Agile/Scrum environment',
+        ],
+        benefits: [
+          'High-impact role with direct access to leadership',
+          'Competitive salary + equity-like performance incentives',
+          'Premium health insurance',
+          'Executive coaching & leadership development program',
+          'Annual learning budget + conference sponsorship',
+        ],
+      },
+      {
+        tag: 'AI / ML',
+        title: 'AI/ML Engineer',
+        location: '📍 Hanoi / Remote',
+        type: '💼 Full-time',
+        tech: '⚡ PyTorch / LLM',
+        salary: 'Negotiable — Competitive package',
+        desc: 'Shape the AI-driven future of CMC\'s product suite. You will research, develop, and deploy machine learning models — with a focus on large language models and applied AI solutions that drive tangible business outcomes.',
+        responsibilities: [
+          'Research, train, and fine-tune ML/LLM models for production use cases',
+          'Deploy models via scalable serving infrastructure (TorchServe, FastAPI, vLLM)',
+          'Collaborate with product teams to identify and scope AI-powered features',
+          'Build evaluation pipelines and monitor model performance in production',
+          'Stay current with the latest AI research and apply relevant breakthroughs',
+        ],
+        requirements: [
+          '3+ years of machine learning engineering experience',
+          'Strong Python skills and deep familiarity with PyTorch or TensorFlow',
+          'Experience fine-tuning or deploying LLMs (OpenAI API, Hugging Face, LangChain)',
+          'Understanding of MLOps: model versioning, monitoring, A/B testing',
+          'Strong mathematical foundation: linear algebra, probability, statistics',
+        ],
+        benefits: [
+          'Work on cutting-edge AI projects with real-world impact',
+          'Access to high-end GPU compute resources',
+          'Premium health insurance',
+          'Research paper publication support',
+          'Competitive salary + innovation bonus',
+        ],
+      },
+    ];
+
+    function closeModal() {
+      document.getElementById('jobModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('modalSubmitBtn');
+      btn.innerHTML = 'Application Sent! ✓';
+      btn.style.background = 'linear-gradient(135deg, #6EE7B7, #818CF8)';
+      btn.disabled = true;
+      setTimeout(() => { closeModal(); btn.innerHTML = 'Submit Application →'; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 2500);
+    }
+
+    document.getElementById('jobModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('jobModal')) closeModal();
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // ===== SMOOTH ACTIVE NAV HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a:not(.btn-book)');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) {
+          current = sec.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.color = '#e2e8f0';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
