@@ -879,23 +879,35 @@
     .footer-links a:hover { color: var(--text); }
 
     /* ===== RESPONSIVE ===== */
+
+    /* Tablet landscape (≤1024px) */
     @media (max-width: 1024px) {
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
-      .jobs-grid { grid-template-columns: repeat(2, 1fr); }
+      .jobs-grid  { grid-template-columns: repeat(2, 1fr); }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .contact-right { max-width: 100%; }
     }
 
+    /* Tablet portrait (≤768px) */
     @media (max-width: 768px) {
-      section { padding: 70px 5%; }
+      section { padding: 60px 4%; }
 
+      nav { padding: 0 4%; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
+      /* Hide Book a Call button on tablet — accessible via mobile menu */
+      nav .btn-book { display: none; }
 
-      .cards-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: 2.5rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+      .cards-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
       .jobs-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       .form-row { grid-template-columns: 1fr; }
 
       .timeline {
@@ -904,9 +916,9 @@
         gap: 2rem;
       }
       .timeline::before {
-        top: 5%;
-        bottom: 5%;
-        left: 28px;
+        top: 28px;
+        bottom: 28px;
+        left: 27px;
         right: auto;
         width: 2px;
         height: auto;
@@ -917,20 +929,57 @@
         text-align: left;
         gap: 1.2rem;
         align-items: flex-start;
+        width: 100%;
       }
       .step-dot { flex-shrink: 0; margin-bottom: 0; }
+
+      /* Calendly: full width, sensible height */
+      .calendly-inline-widget { min-width: 0 !important; width: 100% !important; height: 580px !important; }
 
       footer {
         flex-direction: column;
         text-align: center;
         align-items: center;
       }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
     }
 
+    /* Mobile (≤480px) */
     @media (max-width: 480px) {
-      .hero-ctas { flex-direction: column; align-items: center; }
+      section { padding: 50px 5%; }
+
+      #hero { padding: 100px 5% 60px; }
+
+      .hero-ctas { flex-direction: column; align-items: stretch; }
       .btn-primary, .btn-outline { width: 100%; text-align: center; }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .cards-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+      .stat-number { font-size: 2.2rem; }
+
+      .process-header { margin-bottom: 3rem; }
+
+      /* Timeline: tighter on small screens */
+      .timeline::before { left: 22px; }
+      .step-dot { width: 46px; height: 46px; }
+
+      .calendly-inline-widget { height: 520px !important; }
+
+      .contact-info-list { gap: 0.75rem; }
+      .contact-info-item { padding: 0.75rem; }
+      .info-icon { width: 34px; height: 34px; font-size: 0.95rem; }
+    }
+
+    /* Very small mobile (≤375px) */
+    @media (max-width: 375px) {
+      section { padding: 44px 4%; }
+      .section-title { font-size: 1.75rem; }
+      .hero-h1 { font-size: 2rem; }
+      .hero-name { font-size: 1.3rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+      .stat-card { padding: 1.2rem 1rem; }
+      .stat-number { font-size: 1.9rem; }
+      .glass-card { padding: 1.4rem 1.2rem; }
     }
 
     /* ===== JOBS LOADING STATE ===== */
@@ -1197,6 +1246,7 @@
     <a href="#process" class="mobile-link">Process</a>
     <a href="#careers" class="mobile-link">Opportunities</a>
     <a href="#contact" class="mobile-link">Contact</a>
+    <a href="#contact" class="btn-book" style="text-align:center;margin-top:0.5rem">Book a Call</a>
   </div>
 
   <!-- ===== HERO ===== -->
