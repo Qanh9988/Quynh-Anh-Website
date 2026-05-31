@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1400,13 +1401,17 @@
 
         <!-- Right: Book a Call -->
         <div class="contact-right fade-up" style="transition-delay:0.15s">
-          <div class="contact-card">
-            <div style="font-size:2.5rem;margin-bottom:1rem">&#128222;</div>
-            <div class="contact-card-title">Book a Call</div>
-            <div class="contact-card-desc">Schedule a direct meeting with me to discuss career opportunities or your company's hiring needs. Completely free.</div>
-            <a href="mailto:qanh9988@gmail.com?subject=Book a Call - Career Consultation" class="btn-primary" style="width:100%;text-align:center;display:block;padding:1rem;">
-              Book a Call &#8599;
-            </a>
+          <div class="contact-card" style="padding:0;overflow:hidden;border-radius:1rem;">
+            <div style="padding:1.5rem 1.5rem 0.75rem;border-bottom:1px solid rgba(139,92,246,0.15)">
+              <div class="contact-card-title" style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem">
+                <span style="font-size:1.4rem">&#128222;</span> Book a Call
+              </div>
+              <div class="contact-card-desc" style="margin:0;font-size:0.85rem">Schedule a 30-min meeting directly — no back-and-forth needed.</div>
+            </div>
+            <!-- Calendly inline widget -->
+            <div class="calendly-inline-widget"
+                 data-url="https://calendly.com/qanh9988/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0d0d1a&text_color=f8fafc&primary_color=8b5cf6"
+                 style="min-width:280px;height:630px;"></div>
           </div>
 
           <div class="contact-info-list">
@@ -1901,5 +1906,6 @@
       });
     });
   </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
