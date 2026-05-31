@@ -1595,8 +1595,8 @@
         <div class="modal-section" id="applySection">
           <div class="modal-apply-title">Apply for this position</div>
           <div class="modal-apply-desc">Send your application for <strong>${job.Title}</strong>. Quỳnh Anh will get back to you within 24 hours.</div>
-          <form class="modal-form" onsubmit="handleModalSubmit(event)">
-            <input type="hidden" name="position" value="${job.Title}" />
+          <form class="modal-form" action="https://hook.us2.make.com/uelsuxi6ul4n3trmf3uxfqpyg17n3j81" method="POST" enctype="multipart/form-data" onsubmit="handleModalSubmit(event)">
+            <input type="hidden" name="job" value="${job.Title}" />
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name *</label>
@@ -1617,7 +1617,7 @@
                 <div class="modal-upload-icon">&#128206;</div>
                 <div class="modal-upload-text">Drag &amp; drop or <strong>browse</strong> to upload</div>
                 <div class="modal-upload-filename" id="modalFileName"></div>
-                <input type="file" id="modalCvInput" name="cv" accept=".pdf,.docx" />
+                <input type="file" id="modalCvInput" name="cv_file" accept=".pdf,.docx" />
               </div>
             </div>
             <div class="form-group">
