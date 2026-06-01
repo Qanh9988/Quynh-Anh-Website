@@ -2198,7 +2198,7 @@
       document.getElementById('modalMeta').innerHTML    = [
         job.Location ? `<span>&#128205; ${job.Location}</span>` : '',
         job.Salary   ? `<span>&#128176; ${job.Salary}</span>`   : '',
-        '<span style="color:var(--blue)">&#9679; Đang tuyển</span>',
+        '<span style="color:var(--blue)">&#9679; Hiring</span>',
       ].join('');
 
       const desc = job.Description
@@ -2234,9 +2234,9 @@
               <label>Attach CV (PDF or DOCX, max 5MB)</label>
               <div class="modal-upload" id="modalUploadArea" onclick="document.getElementById('modalCvInput').click()">
                 <div class="modal-upload-icon">&#128196;</div>
-                <div class="modal-upload-main">Kéo thả file vào đây</div>
-                <div class="modal-upload-text">hoặc <strong>Bấm để chọn file</strong></div>
-                <div class="modal-upload-hint">PDF hoặc DOCX &bull; Tối đa 5MB</div>
+                <div class="modal-upload-main">Drag & drop file here</div>
+                <div class="modal-upload-text">or <strong>Click to select file</strong></div>
+                <div class="modal-upload-hint">PDF or DOCX &bull; Max 5MB</div>
                 <div class="modal-upload-filename" id="modalFileName"></div>
                 <input type="file" id="modalCvInput" name="cv_file" accept=".pdf,.docx" />
               </div>
